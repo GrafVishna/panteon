@@ -165,6 +165,14 @@ body {
   padding: 0 0.9375rem;
 }
 
+[data-fullscreen] {
+  min-height: 100vh;
+}
+
+.touch [data-fullscreen] {
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
 [class*=-ibg] {
   position: relative;
 }
@@ -666,6 +674,12 @@ body {
 }
 
 @media (max-width: 47.99875em) {
+  .touch [data-fullscreen] {
+    -webkit-transition: height 0.2s;
+    -o-transition: height 0.2s;
+    transition: height 0.2s;
+  }
+
   ._btn::before {
     -webkit-transform: skewX(-20deg) translate(-0.3125rem, 0.3125rem);
         -ms-transform: skewX(-20deg) translate(-0.3125rem, 0.3125rem);
