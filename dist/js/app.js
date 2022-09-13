@@ -3451,7 +3451,7 @@
             images: core_images
         };
         const extendedDefaults = {};
-        class core_Swiper {
+        class Swiper {
             constructor() {
                 let el;
                 let params;
@@ -3466,7 +3466,7 @@
                         const newParams = utils_extend({}, params, {
                             el: containerEl
                         });
-                        swipers.push(new core_Swiper(newParams));
+                        swipers.push(new Swiper(newParams));
                     }));
                     return swipers;
                 }
@@ -3807,26 +3807,26 @@
                 return defaults;
             }
             static installModule(mod) {
-                if (!core_Swiper.prototype.__modules__) core_Swiper.prototype.__modules__ = [];
-                const modules = core_Swiper.prototype.__modules__;
+                if (!Swiper.prototype.__modules__) Swiper.prototype.__modules__ = [];
+                const modules = Swiper.prototype.__modules__;
                 if ("function" === typeof mod && modules.indexOf(mod) < 0) modules.push(mod);
             }
             static use(module) {
                 if (Array.isArray(module)) {
-                    module.forEach((m => core_Swiper.installModule(m)));
-                    return core_Swiper;
+                    module.forEach((m => Swiper.installModule(m)));
+                    return Swiper;
                 }
-                core_Swiper.installModule(module);
-                return core_Swiper;
+                Swiper.installModule(module);
+                return Swiper;
             }
         }
         Object.keys(prototypes).forEach((prototypeGroup => {
             Object.keys(prototypes[prototypeGroup]).forEach((protoMethod => {
-                core_Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+                Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
             }));
         }));
-        core_Swiper.use([ Resize, Observer ]);
-        const core = core_Swiper;
+        Swiper.use([ Resize, Observer ]);
+        const core = Swiper;
         function create_element_if_not_defined_createElementIfNotDefined(swiper, originalParams, params, checkProps) {
             const document = ssr_window_esm_getDocument();
             if (swiper.params.createElements) Object.keys(checkProps).forEach((key => {
@@ -4334,7 +4334,8 @@
                 modules: [ Navigation, Scrollbar, Manipulation ],
                 observer: true,
                 observeParents: true,
-                spaceBetween: 30,
+                slidesPerView: 1.3,
+                spaceBetween: 15,
                 autoHeight: true,
                 speed: 800,
                 scrollbar: true,
@@ -4349,13 +4350,20 @@
                 },
                 breakpoints: {
                     320: {
-                        slidesPerView: 1.3
+                        slidesPerView: 1.3,
+                        spaceBetween: 15
                     },
                     480: {
-                        slidesPerView: 2.3
+                        slidesPerView: 2.3,
+                        spaceBetween: 20
                     },
                     768: {
-                        slidesPerView: 4
+                        slidesPerView: 4,
+                        spaceBetween: 25
+                    },
+                    991: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
                     }
                 },
                 on: {}
@@ -4364,7 +4372,8 @@
                 modules: [ Navigation, Scrollbar ],
                 observer: true,
                 observeParents: true,
-                spaceBetween: 38,
+                slidesPerView: 1.3,
+                spaceBetween: 15,
                 autoHeight: true,
                 speed: 800,
                 scrollbar: true,
@@ -4378,20 +4387,69 @@
                 },
                 breakpoints: {
                     320: {
-                        slidesPerView: 1.3
+                        slidesPerView: 1.3,
+                        spaceBetween: 15
                     },
                     480: {
-                        slidesPerView: 1.7
+                        slidesPerView: 1.7,
+                        spaceBetween: 20
                     },
                     768: {
-                        slidesPerView: 3
+                        slidesPerView: 3,
+                        spaceBetween: 28
+                    },
+                    991: {
+                        slidesPerView: 3,
+                        spaceBetween: 38
                     }
                 },
                 on: {}
             });
         }
+        function initSlidersScroll() {
+            let sliderScrollItems = document.querySelectorAll(".body-subscriptions__slider-test");
+            if (sliderScrollItems.length > 0) for (let index = 0; index < sliderScrollItems.length; index++) {
+                const sliderScrollItem = sliderScrollItems[index];
+                const sliderScrollBar = sliderScrollItem.querySelector(".subscriptions-swiper-scrollbar");
+                const sliderScroll = new core(sliderScrollItem, {
+                    modules: [ Navigation, Scrollbar ],
+                    observer: true,
+                    observeParents: true,
+                    resistanceRatio: 0,
+                    spaceBetween: 0,
+                    slidesPerView: .388,
+                    freeMode: {
+                        enabled: true
+                    },
+                    scrollbar: {
+                        el: sliderScrollBar,
+                        draggable: true,
+                        snapOnRelease: false
+                    },
+                    mousewheel: {
+                        releaseOnEdges: true
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: .399
+                        },
+                        600: {
+                            slidesPerView: .6
+                        },
+                        790: {
+                            slidesPerView: .8
+                        },
+                        991: {
+                            slidesPerView: 1
+                        }
+                    }
+                });
+                sliderScroll.scrollbar.updateSize();
+            }
+        }
         window.addEventListener("load", (function(e) {
             initSliders();
+            initSlidersScroll();
         }));
         let addWindowScrollEvent = false;
         function pageNavigation() {
@@ -6266,6 +6324,49 @@ PERFORMANCE OF THIS SOFTWARE.
         };
         const da = new DynamicAdapt("max");
         da.init();
+        let personal = document.querySelector(".personal-trainings");
+        let independent = document.querySelector(".independent-trainings");
+        let group = document.querySelector(".group-trainings");
+        let number1 = document.querySelector(".number-trainings-1");
+        let number2 = document.querySelector(".number-trainings-4");
+        let number3 = document.querySelector(".number-trainings-8");
+        let number4 = document.querySelector(".number-trainings-12");
+        let personal1 = document.querySelector(".personal-trainings-prise-1");
+        let personal2 = document.querySelector(".personal-trainings-prise-4");
+        let personal3 = document.querySelector(".personal-trainings-prise-8");
+        let personal4 = document.querySelector(".personal-trainings-prise-12");
+        let independent1 = document.querySelector(".independent-trainings-prise-1");
+        let independent2 = document.querySelector(".independent-trainings-prise-4");
+        let independent3 = document.querySelector(".independent-trainings-prise-8");
+        let independent4 = document.querySelector(".independent-trainings-prise-12");
+        let group1 = document.querySelector(".group-trainings-prise-1");
+        let group2 = document.querySelector(".group-trainings-prise-4");
+        let group3 = document.querySelector(".group-trainings-prise-8");
+        let group4 = document.querySelector(".group-trainings-prise-12");
+        function script_once(q, w, e) {
+            q.addEventListener("mouseover", (function() {
+                w.classList.add("_personal-hover-color");
+                e.classList.add("_personal-hover-color");
+                q.classList.add("_personal-hover-color");
+            }));
+            q.addEventListener("mouseout", (function() {
+                w.classList.remove("_personal-hover-color");
+                e.classList.remove("_personal-hover-color");
+                q.classList.remove("_personal-hover-color");
+            }));
+        }
+        script_once(personal1, personal, number1);
+        script_once(personal2, personal, number2);
+        script_once(personal3, personal, number3);
+        script_once(personal4, personal, number4);
+        script_once(independent1, independent, number1);
+        script_once(independent2, independent, number2);
+        script_once(independent3, independent, number3);
+        script_once(independent4, independent, number4);
+        script_once(group1, group, number1);
+        script_once(group2, group, number2);
+        script_once(group3, group, number3);
+        script_once(group4, group, number4);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
