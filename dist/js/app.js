@@ -4407,11 +4407,50 @@
             });
         }
         function initSlidersScroll() {
-            let sliderScrollItems = document.querySelectorAll(".body-subscriptions__slider-test");
+            let sliderScrollItems = document.querySelectorAll(".body-subscriptions__slider-top");
+            let sliderScrollItemsBottom = document.querySelectorAll(".body-subscriptions__slider-bottom");
             if (sliderScrollItems.length > 0) for (let index = 0; index < sliderScrollItems.length; index++) {
                 const sliderScrollItem = sliderScrollItems[index];
                 const sliderScrollBar = sliderScrollItem.querySelector(".subscriptions-swiper-scrollbar");
                 const sliderScroll = new core(sliderScrollItem, {
+                    modules: [ Navigation, Scrollbar ],
+                    observer: true,
+                    observeParents: true,
+                    resistanceRatio: 0,
+                    spaceBetween: 0,
+                    slidesPerView: .388,
+                    freeMode: {
+                        enabled: true
+                    },
+                    scrollbar: {
+                        el: sliderScrollBar,
+                        draggable: true,
+                        snapOnRelease: false
+                    },
+                    mousewheel: {
+                        releaseOnEdges: true
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: .399
+                        },
+                        600: {
+                            slidesPerView: .6
+                        },
+                        790: {
+                            slidesPerView: .8
+                        },
+                        991: {
+                            slidesPerView: 1
+                        }
+                    }
+                });
+                sliderScroll.scrollbar.updateSize();
+            }
+            if (sliderScrollItemsBottom.length > 0) for (let index = 0; index < sliderScrollItemsBottom.length; index++) {
+                const sliderScrollItemBottom = sliderScrollItemsBottom[index];
+                const sliderScrollBar = sliderScrollItemBottom.querySelector(".subscriptions-swiper-scrollbar-bottom");
+                const sliderScroll = new core(sliderScrollItemBottom, {
                     modules: [ Navigation, Scrollbar ],
                     observer: true,
                     observeParents: true,
@@ -6343,30 +6382,69 @@ PERFORMANCE OF THIS SOFTWARE.
         let group2 = document.querySelector(".group-trainings-prise-4");
         let group3 = document.querySelector(".group-trainings-prise-8");
         let group4 = document.querySelector(".group-trainings-prise-12");
-        function script_once(q, w, e) {
+        let personalCard = document.querySelector(".personal-card");
+        let independentCard = document.querySelector(".independent-card");
+        let typeCard1 = document.querySelector(".type-card-12");
+        let typeCard2 = document.querySelector(".type-card-6");
+        let typeCard3 = document.querySelector(".type-card-3");
+        let typeCard4 = document.querySelector(".type-card-1");
+        let personalCard1 = document.querySelector(".personal-card-12");
+        let personalCard2 = document.querySelector(".personal-card-6");
+        let personalCard3 = document.querySelector(".personal-card-3");
+        let personalCard4 = document.querySelector(".personal-card-1");
+        let independentCard1 = document.querySelector(".independent-card-12");
+        let independentCard2 = document.querySelector(".independent-card-6");
+        let independentCard3 = document.querySelector(".independent-card-3");
+        let independentCard4 = document.querySelector(".independent-card-1");
+        let trainingBtn1 = document.querySelector(".card-btn-1");
+        let trainingBtn2 = document.querySelector(".card-btn-2");
+        let trainingBtn3 = document.querySelector(".card-btn-3");
+        let trainingTitle1 = document.querySelector(".card-title-1");
+        let trainingTitle2 = document.querySelector(".card-title-2");
+        let trainingTitle3 = document.querySelector(".card-title-3");
+        function sliderCardHover(q, w, e) {
             q.addEventListener("mouseover", (function() {
+                q.classList.add("_personal-hover-color");
                 w.classList.add("_personal-hover-color");
                 e.classList.add("_personal-hover-color");
-                q.classList.add("_personal-hover-color");
             }));
             q.addEventListener("mouseout", (function() {
+                q.classList.remove("_personal-hover-color");
                 w.classList.remove("_personal-hover-color");
                 e.classList.remove("_personal-hover-color");
-                q.classList.remove("_personal-hover-color");
             }));
         }
-        script_once(personal1, personal, number1);
-        script_once(personal2, personal, number2);
-        script_once(personal3, personal, number3);
-        script_once(personal4, personal, number4);
-        script_once(independent1, independent, number1);
-        script_once(independent2, independent, number2);
-        script_once(independent3, independent, number3);
-        script_once(independent4, independent, number4);
-        script_once(group1, group, number1);
-        script_once(group2, group, number2);
-        script_once(group3, group, number3);
-        script_once(group4, group, number4);
+        function cardCardHover(q, w) {
+            q.addEventListener("mouseover", (function() {
+                q, w.classList.add("_personal-hover-color");
+            }));
+            q.addEventListener("mouseout", (function() {
+                q, w.classList.remove("_personal-hover-color");
+            }));
+        }
+        sliderCardHover(personal1, personal, number1);
+        sliderCardHover(personal2, personal, number2);
+        sliderCardHover(personal3, personal, number3);
+        sliderCardHover(personal4, personal, number4);
+        sliderCardHover(independent1, independent, number1);
+        sliderCardHover(independent2, independent, number2);
+        sliderCardHover(independent3, independent, number3);
+        sliderCardHover(independent4, independent, number4);
+        sliderCardHover(group1, group, number1);
+        sliderCardHover(group2, group, number2);
+        sliderCardHover(group3, group, number3);
+        sliderCardHover(group4, group, number4);
+        sliderCardHover(personalCard1, personalCard, typeCard1);
+        sliderCardHover(personalCard2, personalCard, typeCard2);
+        sliderCardHover(personalCard3, personalCard, typeCard3);
+        sliderCardHover(personalCard4, personalCard, typeCard4);
+        sliderCardHover(independentCard1, independentCard, typeCard1);
+        sliderCardHover(independentCard2, independentCard, typeCard2);
+        sliderCardHover(independentCard3, independentCard, typeCard3);
+        sliderCardHover(independentCard4, independentCard, typeCard4);
+        cardCardHover(trainingBtn1, trainingTitle1);
+        cardCardHover(trainingBtn2, trainingTitle2);
+        cardCardHover(trainingBtn3, trainingTitle3);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
