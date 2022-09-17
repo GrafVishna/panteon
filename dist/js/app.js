@@ -4405,6 +4405,38 @@
                 },
                 on: {}
             });
+            if (document.querySelector(".trainers-slider__slider")) new core(".trainers-slider__slider", {
+                modules: [ Navigation, Scrollbar ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 2.3,
+                spaceBetween: 30,
+                autoHeight: false,
+                speed: 800,
+                loop: false,
+                slidesPerGroup: 1,
+                navigation: {
+                    prevEl: ".trainers-slider-button-prev",
+                    nextEl: ".trainers-slider-button-next"
+                },
+                scrollbar: {
+                    el: ".trainers-slider-scrollbar",
+                    draggable: true
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1.2
+                    },
+                    480: {
+                        slidesPerView: 2.3
+                    },
+                    768: {},
+                    991: {
+                        slidesPerView: 3.3
+                    }
+                },
+                on: {}
+            });
         }
         function initSlidersScroll() {
             let sliderScrollItems = document.querySelectorAll(".body-subscriptions__slider-top");
@@ -6396,12 +6428,6 @@ PERFORMANCE OF THIS SOFTWARE.
         let independentCard2 = document.querySelector(".independent-card-6");
         let independentCard3 = document.querySelector(".independent-card-3");
         let independentCard4 = document.querySelector(".independent-card-1");
-        let trainingBtn1 = document.querySelector(".card-btn-1");
-        let trainingBtn2 = document.querySelector(".card-btn-2");
-        let trainingBtn3 = document.querySelector(".card-btn-3");
-        let trainingTitle1 = document.querySelector(".card-title-1");
-        let trainingTitle2 = document.querySelector(".card-title-2");
-        let trainingTitle3 = document.querySelector(".card-title-3");
         function sliderCardHover(q, w, e) {
             q.addEventListener("mouseover", (function() {
                 q.classList.add("_personal-hover-color");
@@ -6412,14 +6438,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 q.classList.remove("_personal-hover-color");
                 w.classList.remove("_personal-hover-color");
                 e.classList.remove("_personal-hover-color");
-            }));
-        }
-        function cardCardHover(q, w) {
-            q.addEventListener("mouseover", (function() {
-                q, w.classList.add("_personal-hover-color");
-            }));
-            q.addEventListener("mouseout", (function() {
-                q, w.classList.remove("_personal-hover-color");
             }));
         }
         sliderCardHover(personal1, personal, number1);
@@ -6442,9 +6460,6 @@ PERFORMANCE OF THIS SOFTWARE.
         sliderCardHover(independentCard2, independentCard, typeCard2);
         sliderCardHover(independentCard3, independentCard, typeCard3);
         sliderCardHover(independentCard4, independentCard, typeCard4);
-        cardCardHover(trainingBtn1, trainingTitle1);
-        cardCardHover(trainingBtn2, trainingTitle2);
-        cardCardHover(trainingBtn3, trainingTitle3);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
