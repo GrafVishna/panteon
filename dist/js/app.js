@@ -6460,6 +6460,16 @@ PERFORMANCE OF THIS SOFTWARE.
         sliderCardHover(independentCard2, independentCard, typeCard2);
         sliderCardHover(independentCard3, independentCard, typeCard3);
         sliderCardHover(independentCard4, independentCard, typeCard4);
+        let footerMenuBtn = document.querySelector(".footer-menu");
+        let footerList = document.querySelector(".footer__colunm-center");
+        function footerMenu() {
+            footerMenuBtn.addEventListener("click", (function() {
+                footerMenuBtn.classList.toggle("footer-menu-open");
+                footerList.classList.toggle("footer-menu-open");
+            }));
+        }
+        footerMenu();
+        document.querySelectorAll(".footer-menu-link");
         window["FLS"] = true;
         isWebp();
         addTouchClass();
