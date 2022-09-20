@@ -585,7 +585,7 @@ body {
   grid-area: logo;
   position: relative;
   z-index: 22;
-  width: 10.625rem;
+  max-width: 10.625rem;
 }
 
 .header__logo img {
@@ -4738,7 +4738,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 
   .header__logo {
-    width: 8.125rem;
+    max-width: 8.125rem;
   }
 
   .header__tell-btn {
