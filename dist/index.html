@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220919224114">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220920142758">
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 
 	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -60,14 +60,14 @@
 					</div>
 				</div>
 				<!-- === -->
-				<div class="fullscreen__decor decor-fullscreen">
-					<div class="decor-fullscreen__top">
-						<div class="decor-fullscreen__top-line"></div>
-						<div class="decor-fullscreen__top-yellow"></div>
+				<div class="fullscreen__decor _decor-block">
+					<div class="_decor-block__top">
+						<div class="_decor-block__top-line"></div>
+						<div class="_decor-block__top-yellow"></div>
 					</div>
-					<div class="decor-fullscreen__left">
-						<div class="decor-fullscreen__left-yellow"></div>
-						<div class="decor-fullscreen__left-line"></div>
+					<div class="_decor-block__left">
+						<div class="_decor-block__left-yellow"></div>
+						<div class="_decor-block__left-line"></div>
 					</div>
 				</div>
 				<!-- === -->
@@ -363,7 +363,9 @@
 								<button type="button" class="top-slider-button-next _slider-arrow-next">
 								</button>
 								<!-- Если нужен скролбар -->
-								<div class="top-slider-scrollbar"></div>
+								<div class="top-slider-scrollbar-wrapper _scrollbar-wrapper">
+									<div class="top-slider-scrollbar _scrollbar"></div>
+								</div>
 							</div>
 						</div>
 						<!-- ? -->
@@ -434,17 +436,28 @@
 								<button type="button" class="bottom-slider-button-next _slider-arrow-next">
 								</button>
 								<!-- Если нужен скролбар -->
-								<div class="bottom-slider-scrollbar"></div>
+								<div class="bottom-slider-scrollbar-wrapper _scrollbar-wrapper">
+									<div class="bottom-slider-scrollbar _scrollbar"></div>
+								</div>
+
 							</div>
 						</div>
 						<!-- ? -->
 					</div>
 				</div>
+				<!-- ? Decor -->
+				<div class="gallery__decor _decor-block">
+					<div class="_decor-block__left">
+						<div class="_decor-block__left-yellow"></div>
+						<div class="_decor-block__left-line"></div>
+					</div>
+				</div>
 			</div>
 			<!-- ? ======================================================================================================================================================== -->
 			<div id="subscriptions" class="subscriptions">
-				<div class="subscriptions__container">
-					<div class="subscriptions__body body-subscriptions">
+
+				<div class="subscriptions__body body-subscriptions">
+					<div class="subscriptions__container">
 						<!-- ? -->
 						<!-- Оболочка слайдера -->
 						<div class="body-subscriptions__slider body-subscriptions__slider-top">
@@ -486,7 +499,9 @@
 								</div>
 							</div>
 							<!-- Если нужен скролбар -->
-							<div class="subscriptions-swiper-scrollbar _scrollbar"></div>
+							<div class="subscriptions-swiper-scrollbar-wrapper _scrollbar-wrapper">
+								<div class="subscriptions-swiper-scrollbar _scrollbar"></div>
+							</div>
 						</div>
 						<!-- ? -->
 						<!-- Оболочка слайдера -->
@@ -522,7 +537,22 @@
 								</div>
 							</div>
 							<!-- Если нужен скролбар -->
-							<div class="subscriptions-swiper-scrollbar-bottom _scrollbar"></div>
+							<div class="subscriptions-swiper-scrollbar-wrapper _scrollbar-wrapper">
+								<div class="subscriptions-swiper-scrollbar-bottom _scrollbar"></div>
+							</div>
+							<!-- <div class="subscriptions-swiper-scrollbar-bottom _scrollbar"></div> -->
+						</div>
+					</div>
+					<!-- ? Decor -->
+					<div class="subscriptions__decor _decor-block">
+						<div class="_decor-block__left">
+							<div class="_decor-block__left-gray"></div>
+							<div class="_decor-block__left-line"></div>
+						</div>
+						<div class="_decor-block__right">
+							<div class="_decor-block__right-gray"></div>
+							<div class="_decor-block__right-yellow"></div>
+							<div class="_decor-block__right-line"></div>
 						</div>
 					</div>
 				</div>
@@ -574,6 +604,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 			<!-- ? ======================================================================================================================================================== -->
 			<div id="trainers" class="trainers">
@@ -656,7 +687,9 @@
 									</div>
 									<!-- === -->
 								</div>
-								<div class="trainers-slider-scrollbar _scrollbar"></div>
+								<div class="trainers-slider-scrollbar-wrapper _scrollbar-wrapper">
+									<div class="trainers-slider-scrollbar _scrollbar"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -843,7 +876,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220919224114"></script>
+	<script src="js/app.min.js?_v=20220920142758"></script>
 </body>
 
 </html>

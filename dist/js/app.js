@@ -4472,7 +4472,7 @@
                         790: {
                             slidesPerView: .8
                         },
-                        991: {
+                        991.98: {
                             slidesPerView: 1
                         }
                     }
@@ -4510,7 +4510,7 @@
                         790: {
                             slidesPerView: .8
                         },
-                        991: {
+                        991.98: {
                             slidesPerView: 1
                         }
                     }
@@ -6469,7 +6469,6 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }
         footerMenu();
-        document.querySelectorAll(".footer-menu-link");
         window["FLS"] = true;
         isWebp();
         addTouchClass();
